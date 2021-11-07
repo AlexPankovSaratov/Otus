@@ -88,60 +88,93 @@ namespace PostgreSQLforOtus
 					Id = 1,
 					СourseName = "C#",
 					Location = locations[0],
-					Teacher = teachers[0]
 				},
 				new Сourse
 				{
 					Id = 2,
 					СourseName = "Java",
 					Location = locations[1],
-					Teacher = teachers[1]
 				},
 				new Сourse
 				{
 					Id = 3,
 					СourseName = "MS SQL",
 					Location = locations[2],
-					Teacher = teachers[2]
 				},
 				new Сourse
 				{
 					Id = 4,
 					СourseName = "Python",
 					Location = locations[3],
-					Teacher = teachers[3]
 				},
 				new Сourse
 				{
 					Id = 5,
 					СourseName = "Ruby",
 					Location = locations[4],
+				},
+			};
+			var teacherCourse = new List<TeacherCourse>
+			{
+				new TeacherCourse
+				{
+					Id = 1,
+					Course = courses[0],
 					Teacher = teachers[4]
+				},
+				new TeacherCourse
+				{
+					Id = 2,
+					Course = courses[1],
+					Teacher = teachers[3]
+				},
+				new TeacherCourse
+				{
+					Id = 3,
+					Course = courses[2],
+					Teacher = teachers[2]
+				},
+				new TeacherCourse
+				{
+					Id = 4,
+					Course = courses[3],
+					Teacher = teachers[1]
+				},
+				new TeacherCourse
+				{
+					Id = 5,
+					Course = courses[4],
+					Teacher = teachers[0]
 				},
 			};
 
 			#region раскомментировать для создания
-			//foreach (var item in locations)
-			//{
-			//	item.Id = 0;
-			//}
-			//foreach (var item in teachers)
-			//{
-			//	item.Id = 0;
-			//}
-			//foreach (var item in courses)
-			//{
-			//	item.Id = 0;
-			//}
+			foreach (var item in locations)
+			{
+				item.Id = 0;
+			}
+			foreach (var item in teachers)
+			{
+				item.Id = 0;
+			}
+			foreach (var item in courses)
+			{
+				item.Id = 0;
+			}
+			foreach (var item in teacherCourse)
+			{
+				item.Id = 0;
+			}
 			#endregion
-
 			dbManager.InsertOrUpdateEntity(locations);
 			dbManager.InsertOrUpdateEntity(teachers);
 			dbManager.InsertOrUpdateEntity(courses);
+			dbManager.InsertOrUpdateEntity(teacherCourse);
 
 			Console.WriteLine($"\nLocations :\n { string.Join(',', dbManager.GetAllLocations().Select(it => "\n" + it.Id + " " + it.Name + " " + it.Address))}");
 			Console.WriteLine($"\nTeachers :\n { string.Join(',', dbManager.GetAllTeachers().Select(it => "\n" + it.Id + " " + it.FirstName + " " + it.LastName))}");
 			Console.WriteLine($"\nСourses :\n { string.Join(',', dbManager.GetAllСourses().Select(it => "\n" + it.Id + " " + it.СourseName))}");
+			Console.WriteLine($"\nTeacherCourse :\n { string.Join(',', dbManager.GetAllTeacherCourse().Select(it => "\n" + it.Course.Id + " - " + it.Teacher.Id))}");
 		}
 	}
 }

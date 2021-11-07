@@ -1,4 +1,4 @@
-	create table Location (
+    create table Location (
         Id  bigserial,
        Name varchar(255) not null,
        Address varchar(255),
@@ -12,20 +12,31 @@
        primary key (Id)
     )
 
+    create table TeacherCourse (
+        Id  bigserial,
+       Course_id int8,
+       Teacher_id int8,
+       primary key (Id)
+    )
+
     create table Сourse (
         Id  bigserial,
        СourseName varchar(255) not null,
        Location_id int8,
-       Teacher_id int8,
        primary key (Id)
     )
+
+    alter table TeacherCourse
+        add constraint TeacherCourse_fk_courseId
+        foreign key (Course_id)
+        references Сourse
+
+    alter table TeacherCourse
+        add constraint TeacherCourse_fk_teacher_id
+        foreign key (Teacher_id)
+        references Teacher
 
     alter table Сourse
         add constraint Сourses_fk_locationId
         foreign key (Location_id)
         references Location
-
-    alter table Сourse
-        add constraint Сourses_fk_teacherId
-        foreign key (Teacher_id)
-        references Teacher

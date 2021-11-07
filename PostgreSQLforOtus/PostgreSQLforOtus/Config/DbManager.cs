@@ -99,5 +99,15 @@ namespace PostgreSQLforOtus.Config
 				}
 			}
 		}
+		public List<TeacherCourse> GetAllTeacherCourse()
+		{
+			using (ISession session = sessionFactory.OpenSession())
+			{
+				using (ITransaction transaction = session.BeginTransaction())
+				{
+					return session.Query<TeacherCourse>().ToList();
+				}
+			}
+		}
 	}
 }

@@ -18,10 +18,18 @@ namespace PostgreSQLforOtus.Entities
 		public virtual string LastName { get; set; }
 
 		//Реализовал так
-		[Bag(0, Name = "Сourses", Inverse = true)]
+		[Bag(0, Name = "TeacherCourses", Inverse = true)]
 		[Key(1, Column = "Teacher_id")]
-		[OneToMany(2, ClassType = typeof(Сourse))]
-		public virtual IList<Сourse> Сourses { get; set; }
+		[OneToMany(2, ClassType = typeof(TeacherCourse))]
+		private IList<TeacherCourse> _teacherCourses;
+		public virtual IList<TeacherCourse> TeacherCourses
+		{
+			get
+			{
+				return _teacherCourses ?? (_teacherCourses = new List<TeacherCourse>());
+			}
+			set { _teacherCourses = value; }
+		}
 
 		// Почему то не работает =(
 

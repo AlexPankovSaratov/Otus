@@ -18,8 +18,18 @@ namespace PostgreSQLforOtus.Entities
 		public virtual Location Location { get; set; }
 
 		//Реализовал так
-		[ManyToOne(Column = "Teacher_id", ForeignKey = "Сourses_fk_teacherId", Cascade = "all")]
-		public virtual Teacher Teacher { get; set; }
+		[Bag(0, Name = "TeacherCourses", Inverse = true)]
+		[Key(1, Column = "Course_id")]
+		[OneToMany(2, ClassType = typeof(TeacherCourse))]
+		private IList<TeacherCourse> _teacherCourses;
+		public virtual IList<TeacherCourse> TeacherCourses
+		{
+			get
+			{
+				return _teacherCourses ?? (_teacherCourses = new List<TeacherCourse>());
+			}
+			set { _teacherCourses = value; }
+		}
 
 		// Почему то не работает =(
 
