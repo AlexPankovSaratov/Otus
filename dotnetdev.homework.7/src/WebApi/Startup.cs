@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -18,6 +19,7 @@ namespace WebApi
         {
             services.AddControllers();
             services.AddSwaggerGen();
+            services.AddDbContext<ApplicationDBContext>(o => o.UseInMemoryDatabase("ApplicationDBContext"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
