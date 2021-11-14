@@ -25,6 +25,14 @@ namespace WebApi.Controllers
         [HttpPost("")]   
         public ActionResult<long> CreateCustomerAsync([FromBody] Customer customer)
         {
+			if (customer.Id != 0)
+			{
+                var Customer = _context.Customers.FindAsync(customer.Id).Result;
+				if (Customer != null)
+				{
+                    return Conflict();
+                }
+            }
             long id = _context.Customers.AddAsync(customer).Result.Entity.Id;
             _context.SaveChangesAsync();
             return new ActionResult<long>(id);
