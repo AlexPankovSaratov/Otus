@@ -1,4 +1,5 @@
-﻿using PostgreSQLforOtus.Config;
+﻿using Microsoft.Extensions.Configuration;
+using PostgreSQLforOtus.Config;
 using PostgreSQLforOtus.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,9 @@ namespace PostgreSQLforOtus
 	{
 		static void Main(string[] args)
 		{
-			DbManager dbManager = new DbManager("Server=localhost;Port=5432;Database=Otus;User Id=postgres;Password=123;");
+			IConfigurationBuilder configBuilder = new ConfigurationBuilder().AddJsonFile("appSettings.json");
+			IConfiguration config = configBuilder.Build();
+			DbManager dbManager = new DbManager(config.GetConnectionString("DefaultConnectionStrings"));
 			var locations = new List<Location>
 			{
 				new Location
