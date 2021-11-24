@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31829.152
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLIDprincipal", "SOLIDprincipal\SOLIDprincipal.csproj", "{C9AC0D15-025E-4527-B004-65BA17883F81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameTheGuess", "GameTheGuess\GameTheGuess.csproj", "{324F3EE8-B688-4357-812A-243C3F83C147}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9AC0D15-025E-4527-B004-65BA17883F81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9AC0D15-025E-4527-B004-65BA17883F81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9AC0D15-025E-4527-B004-65BA17883F81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9AC0D15-025E-4527-B004-65BA17883F81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{324F3EE8-B688-4357-812A-243C3F83C147}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{324F3EE8-B688-4357-812A-243C3F83C147}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{324F3EE8-B688-4357-812A-243C3F83C147}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{324F3EE8-B688-4357-812A-243C3F83C147}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35FF748B-8A40-42C1-AAED-4C2E75565CF1}
+	EndGlobalSection
+EndGlobal
