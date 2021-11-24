@@ -85,7 +85,7 @@ namespace GameTheGuess.Implementation
 			{
 				var localNumberOfAttempts = _numberOfAttempts;
 				GenerateNewRandomValue();
-				ReturnUserMessage("\nI thought of a number, will you try to guess it?");
+				ReturnUserMessage(Environment.NewLine + "I thought of a number, will you try to guess it?");
 				while ((CompareRandomValue() != ComparisonOperators.equals && localNumberOfAttempts > 0) || localNumberOfAttempts == _numberOfAttempts)
 				{
 					ReturnUserMessage("Enter your new guess:");
