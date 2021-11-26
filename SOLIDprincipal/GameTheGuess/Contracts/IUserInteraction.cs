@@ -9,7 +9,7 @@ namespace GameTheGuess.Contracts
 	public interface IUserInteraction
 	{
 		void ReturnUserMessage(string message);
-		string GetUserMessage();
+		string GetUserMessageAsync();
 		void ClearGameHistory();
 	}
 }

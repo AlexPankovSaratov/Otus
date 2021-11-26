@@ -7,7 +7,9 @@ namespace SOLIDprincipal
 	{
 		static void Main(string[] args)
 		{
-			var Game = new GuessTheNumber();
+			GuessTheNumber Game = new GuessTheNumber();
+			Game.Run();
+			Game = new GuessTheNumberServiceVersion();
 			Game.Run();
 		}
 	}
