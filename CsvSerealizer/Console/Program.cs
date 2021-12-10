@@ -29,6 +29,7 @@ namespace TestConsole
 				serStr = CsvSerealizer.SerializeFromObjectToCSV(F.Get());
 			}
 			stopwatch.Stop();
+			stringBuilder.Append(Environment.NewLine + "Полученная строка = " + serStr);
 			stringBuilder.Append(Environment.NewLine + "Время на сериализацию = " + stopwatch.ElapsedMilliseconds + " мс");
 			stopwatch.Restart();
 			for (int i = 0; i < numIterations; i++)
@@ -44,6 +45,7 @@ namespace TestConsole
 			}
 			stopwatch.Stop();
 			stringBuilder.Append(Environment.NewLine + " стандартный механизм (NewtonsoftJson): ");
+			stringBuilder.Append(Environment.NewLine + "Полученная строка = " + serStr);
 			stringBuilder.Append(Environment.NewLine + "Время на сериализацию = " + stopwatch.ElapsedMilliseconds + " мс");
 			stopwatch.Restart();
 			for (int i = 0; i < numIterations; i++)
