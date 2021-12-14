@@ -10,12 +10,24 @@ namespace DelegatesApp
 	{
 		public static void Main(string[] args)
 		{
-			var q = new List<int>();
-			q.GetMax<MyClass>(z => z.MyProperty);
+			var myClasses = new List<MyClass>
+			{
+				{ new MyClass(741) },
+				{ new MyClass(2) },
+				{ new MyClass(3) },
+				{ new MyClass(4) },
+			};
+			var res = myClasses.GetMax<MyClass>(z => z.Value);
+			var res2 = new List<int> { 1, 22, 12, 23 }.GetMax<int>(v => v);
 		}
 	}
 	public class MyClass
 	{
-		public float MyProperty { get; set; }
+		public float Value;
+
+		public MyClass(float Value)
+		{
+			this.Value = Value;
+		}
 	}
 }
