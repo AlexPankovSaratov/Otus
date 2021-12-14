@@ -17,8 +17,8 @@ namespace DelegatesApp
 				{ new MyClass(3) },
 				{ new MyClass(4) },
 			};
-			var res = myClasses.GetMax<MyClass>(z => z.Value);
-			var res2 = new List<int> { 1, 22, 12, 23 }.GetMax<int>(v => v);
+			var res = myClasses.GetMax<MyClass>(item => item.Value);
+			var res2 = new List<int> { 1, 22, 12, 23 }.GetMax<int>(item => item);
 		}
 	}
 	public class MyClass
