@@ -9,27 +9,31 @@ namespace DelegatesApp
 {
 	internal static class FileSearcher
 	{
+		private static bool _subscription = true;
+
 		public static event EventHandler FileFound;
 
-		public static void Search(string mainFolderPath, bool unsubscribe)
+		public static void Search(string mainFolderPath)
 		{
+			if (!_subscription) return;
 			if (!Directory.Exists(mainFolderPath)) return;
 			foreach (string fileName in Directory.GetFiles(mainFolderPath))
 			{
-				FileFound?.Invoke(null, new FileArgs(fileName, unsubscribe));
+				FileFound?.Invoke(null, new FileArgs(fileName));
 			}
 			foreach (var subFoldersPath in Directory.GetDirectories(mainFolderPath))
 			{
-				Search(subFoldersPath, unsubscribe);
+				Search(subFoldersPath);
 			}
 		}
 		public static void WriteConsoleEvent(object sender, EventArgs e)
 		{
 			Console.WriteLine("Найден фаил : " + ((FileArgs)e).fileName);
-			if (((FileArgs)e).unsubscribe)
-			{
-				FileSearcher.FileFound -= WriteConsoleEvent;
-			}
 		}
+		public static void Stop()
+		{
+			_subscription = false;
+		}
+
 	}
 }

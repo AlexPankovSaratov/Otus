@@ -7,10 +7,9 @@ namespace DelegatesApp
 		public string fileName;
 		public bool unsubscribe;
 
-		public FileArgs(string fileName, bool unsubscribe)
+		public FileArgs(string fileName)
 		{
 			this.fileName = fileName;
-			this.unsubscribe = unsubscribe;
 		}
 	}
 }

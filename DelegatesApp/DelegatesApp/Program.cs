@@ -12,7 +12,7 @@ namespace DelegatesApp
 		{
 			string folderParh = @"F:\Картинки";
 			FileSearcher.FileFound += FileSearcher.WriteConsoleEvent;
-			FileSearcher.Search(folderParh, true);
+			FileSearcher.Search(folderParh);
 			var test1 = new List<MyClass>
 			{
 				{ new MyClass(741) },
@@ -24,7 +24,7 @@ namespace DelegatesApp
 			Console.WriteLine("Результат поиска максимального значения:");
 			Console.WriteLine("test1: " + test1.Value);
 			Console.WriteLine("test2: " + test2);
-		}		
+		}
 	}
 	public class MyClass
 	{
