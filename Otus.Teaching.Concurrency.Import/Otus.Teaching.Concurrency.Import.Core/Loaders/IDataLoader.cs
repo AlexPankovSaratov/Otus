@@ -1,7 +1,13 @@
-﻿namespace Otus.Teaching.Concurrency.Import.Core.Loaders
+﻿using Otus.Teaching.Concurrency.Import.Handler.Entities;
+using System.Collections.Generic;
+
+namespace Otus.Teaching.Concurrency.Import.Core.Loaders
 {
-    public interface IDataLoader
+    public interface IDataLoader<T>
     {
-        void LoadData();
+		IEnumerable<T> Entitys { get; set; }
+		int CountEntitisInThread { get; set; }
+
+		void LoadData();
     }
 }

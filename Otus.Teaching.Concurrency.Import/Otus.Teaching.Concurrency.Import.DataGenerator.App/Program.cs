@@ -14,7 +14,6 @@ namespace Otus.Teaching.Concurrency.Import.XmlGenerator
         {
             if (!TryValidateAndParseArgs(args))
                 return;
-            
             Console.WriteLine("Generating xml data...");
 
             var generator = GeneratorFactory.GetGenerator(_dataFileName, _dataCount);
@@ -28,7 +27,7 @@ namespace Otus.Teaching.Concurrency.Import.XmlGenerator
         {
             if (args != null && args.Length > 0)
             {
-                _dataFileName = Path.Combine(_dataFileDirectory, $"{args[0]}.xml");
+                _dataFileName = Path.Combine(_dataFileDirectory, $"{args[0]}");
             }
             else
             {
