@@ -19,7 +19,7 @@ namespace Otus.Teaching.Concurrency.Import.Loader
     class Program
     {
         private static int _dataCount = 3000000;
-        private static int _countEntitisInThread = 100000;
+        private static int _countEntitisInThread = 300000;
         private static string _dataFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "customers.xml");
         private static IConfigurationRoot configuration = new ConfigurationBuilder().AddJsonFile("appSettings.json").Build();
         private static AppLaunchMode _appLaunchMode = (AppLaunchMode)int.Parse(configuration["appLaunchMode"]);
@@ -58,8 +58,8 @@ namespace Otus.Teaching.Concurrency.Import.Loader
         {
             using (Process myProcess = new Process())
             {
-                myProcess.StartInfo.UseShellExecute = true;
-                myProcess.StartInfo.CreateNoWindow = true;
+                myProcess.StartInfo.UseShellExecute = false;
+                myProcess.StartInfo.CreateNoWindow = false;
                 myProcess.StartInfo.FileName = _generatorPath;
                 myProcess.StartInfo.Arguments = $"{_dataFilePath} {_dataCount}";
                 myProcess.Start();
