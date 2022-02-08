@@ -10,7 +10,7 @@ namespace MultithreadedProject
 	class Program
 	{
 		private static object lockObj = new object();
-		private static int listCountElements = 100000;
+		private static int listCountElements = 10000000;
 		static void Main(string[] args)
 		{
 			List<int> list = new List<int>();
