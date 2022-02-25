@@ -21,7 +21,7 @@ namespace PrototypePattern.Implementations
 			ColorPattern = colorPattern;
 		}
 
-		public override Cat MyClone()
+		public override SiberianСat MyClone()
 		{
 			return new SiberianСat(AnimalCollor, WoolLength, ColorPattern);
 		}
