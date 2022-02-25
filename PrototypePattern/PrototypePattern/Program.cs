@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrototypePattern.Implementations;
+using System;
 
 namespace PrototypePattern
 {
